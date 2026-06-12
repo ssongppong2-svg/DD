@@ -1,0 +1,1991 @@
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --G:#FFD700;--DG:#8B6914;--OB:#04040A;--DOB:#0C0C18;
+  --CR:#8B0000;--COP:#B87333;--SIL:#C0C0C0;
+}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;}
+body{display:flex;justify-content:center;}
+#root{width:100%;max-width:430px;height:100vh;position:relative;overflow:hidden;background:var(--OB);}
+::-webkit-scrollbar{display:none}
+
+/* ── KEYFRAMES ── */
+@keyframes gR{to{transform:rotate(360deg)}}
+@keyframes gL{to{transform:rotate(-360deg)}}
+@keyframes goldB{0%,100%{box-shadow:0 0 12px var(--G)}50%{box-shadow:0 0 30px var(--G),0 0 60px rgba(255,215,0,.18)}}
+@keyframes redB{0%,100%{box-shadow:0 0 14px var(--CR)}50%{box-shadow:0 0 32px #CC0000}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes popIn{from{transform:scale(.2) rotate(-15deg);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes bossIn{from{transform:scale(.08) rotate(-25deg);opacity:0}60%{transform:scale(1.1)}to{transform:scale(1);opacity:1}}
+@keyframes titleReveal{from{opacity:0;letter-spacing:.8em;transform:translateY(-18px)}to{opacity:1;letter-spacing:.1em;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes critF{0%{transform:translateY(0) scale(0) rotate(-10deg);opacity:0}22%{transform:translateY(-18px) scale(1.4) rotate(3deg);opacity:1}55%{transform:translateY(-42px) scale(1.15);opacity:1}100%{transform:translateY(-92px) scale(.9);opacity:0}}
+@keyframes dpF{0%{transform:translateY(0) scale(.6);opacity:0}15%{transform:translateY(-12px) scale(1.1);opacity:1}70%{opacity:1}100%{transform:translateY(-68px) scale(.85);opacity:0}}
+@keyframes shSm{0%,100%{transform:translate(0)}20%{transform:translate(-3px,2px)}60%{transform:translate(-2px,3px)}}
+@keyframes shMd{0%,100%{transform:translate(0)}15%{transform:translate(-7px,5px)}45%{transform:translate(-5px,7px)}80%{transform:translate(2px,-2px)}}
+@keyframes shLg{0%,100%{transform:translate(0)}10%{transform:translate(-12px,8px)}30%{transform:translate(10px,-10px)}55%{transform:translate(-9px,11px)}}
+@keyframes sNoise{0%{opacity:1}50%{opacity:.2}100%{opacity:.8}}
+@keyframes cdis{0%{transform:scale(1);opacity:1;filter:brightness(1)}30%{transform:scale(1.15) rotate(-3deg);opacity:.9;filter:brightness(3) sepia(1) hue-rotate(30deg)}100%{transform:scale(0) rotate(20deg) translateY(-50px);opacity:0}}
+@keyframes nGlow{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes nCurr{0%,100%{box-shadow:0 0 10px currentColor}50%{box-shadow:0 0 26px currentColor,0 0 48px currentColor}}
+@keyframes ultP{0%,100%{text-shadow:0 0 16px var(--CR)}50%{text-shadow:0 0 40px #CC0000}}
+@keyframes tIn{from{left:-90%}to{left:-6%}}
+@keyframes tInR{from{right:-90%}to{right:-6%}}
+@keyframes tOut{from{left:-6%}to{left:-108%}}
+@keyframes tOutR{from{right:-6%}to{right:-108%}}
+@keyframes tFlash{0%{opacity:0}45%{opacity:1}100%{opacity:0}}
+@keyframes realmIn{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
+@keyframes spA{0%{opacity:1}50%{opacity:.2}100%{opacity:.8}}
+@keyframes tickTock{0%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}100%{transform:rotate(-12deg)}}
+@keyframes cogSpin{to{transform:rotate(360deg)}}
+@keyframes cogSpinR{to{transform:rotate(-360deg)}}
+@keyframes borderFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes cardExpire{0%,100%{opacity:1}50%{opacity:.7;filter:brightness(1.3)}}
+@keyframes neonPulse{0%,100%{box-shadow:0 0 6px #FFD70088,0 0 12px #FFD70033}50%{box-shadow:0 0 16px #FFD700,0 0 32px #FFD70055}}
+@keyframes cyanSweep{0%{background-position:200% center}100%{background-position:-200% center}}
+@keyframes magFlare{0%,100%{text-shadow:0 0 8px #8B0000,0 0 2px rgba(255,100,100,.4)}50%{text-shadow:0 0 18px #CC0000,0 0 36px rgba(139,0,0,.5)}}
+@keyframes neonBorder{0%,100%{border-color:rgba(255,215,0,.4)}50%{border-color:#FFD700}}
+@keyframes cyanFade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes magShake{0%,100%{transform:rotate(0)}20%{transform:rotate(-2deg)}60%{transform:rotate(2deg)}}
+@keyframes scanNeon{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+@keyframes glitch1{0%,100%{clip-path:inset(0 0 95% 0);transform:translate(-2px,0)}33%{clip-path:inset(30% 0 50% 0);transform:translate(2px,0)}66%{clip-path:inset(60% 0 20% 0);transform:translate(-1px,0)}}
+@keyframes glitch2{0%,100%{clip-path:inset(0 0 95% 0);transform:translate(2px,0)}33%{clip-path:inset(50% 0 30% 0);transform:translate(-2px,0)}66%{clip-path:inset(20% 0 60% 0);transform:translate(1px,0)}}
+
+/* ── CORE LAYOUT ── */
+.screen{width:100%;min-height:100vh;position:relative;overflow-y:auto;overflow-x:hidden;}
+.hit-stop,.hit-stop *{animation-play-state:paused!important;}
+.hit-stop #tov *{animation-play-state:running!important;}
+.ss{animation:shSm .25s ease both!important;}
+.sm{animation:shMd .35s ease both!important;}
+.sl{animation:shLg .45s ease both!important;}
+
+/* ── GEAR BORDER ── */
+#gb{position:fixed;top:0;left:50%;transform:translateX(-50%);width:430px;max-width:100vw;height:100vh;pointer-events:none;z-index:900;}
+#gb .bl{position:absolute;inset:5px;border:2px solid var(--G);border-radius:2px;animation:goldB 2.2s ease infinite;}
+#gb.red .bl{border-color:var(--CR);animation:redB 1.8s ease infinite;}
+.gsv{position:absolute;}
+#g8,#g9{opacity:.55;filter:drop-shadow(0 0 3px #FFD700AA);}
+#g10,#g11{opacity:.45;filter:drop-shadow(0 0 3px #D4A017AA);}
+#g12,#g13{opacity:.5;filter:drop-shadow(0 0 4px #8B000099);}
+/* 기어 테두리 선 강화 */
+#gb .bl{box-shadow:inset 0 0 30px rgba(255,215,0,.04),0 0 1px rgba(255,215,0,.15);}
+
+/* ── TRANSITION ── */
+#tov{position:fixed;top:0;left:0;width:100%;max-width:100vw;height:100vh;z-index:9800;pointer-events:none;overflow:hidden;}
+#tov.on{pointer-events:all;}
+#tl{position:absolute;top:50%;left:-95%;width:95%;aspect-ratio:1;transform:translateY(-50%);}
+#tr{position:absolute;top:50%;right:-95%;width:95%;aspect-ratio:1;transform:translateY(-50%) scaleX(-1);}
+#tfl{position:absolute;inset:0;background:#000;opacity:0;}
+.tgear{animation:gR 2s linear infinite;transform-origin:50% 50%;transform-box:fill-box;}
+.tgear2{animation:gL 3s linear infinite;transform-origin:50% 50%;transform-box:fill-box;}
+.ti-l{animation:tIn .52s cubic-bezier(.4,0,.2,1) forwards!important;}
+.ti-r{animation:tInR .52s cubic-bezier(.4,0,.2,1) forwards!important;}
+.to-l{animation:tOut .42s cubic-bezier(.4,0,.8,1) forwards!important;}
+.to-r{animation:tOutR .42s cubic-bezier(.4,0,.8,1) forwards!important;}
+
+/* ── SCANLINE ── */
+#scl{position:fixed;inset:0;pointer-events:none;z-index:8999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 3px);}
+
+
+/* ── G 스캔라인 (전투 전용) ── */
+.battle-neon-scan{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+.battle-neon-scan::after{content:'';position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#FFD70014,#FFD70028,#FFD70014,transparent);animation:scanNeon 4s linear infinite;top:0;}
+/* ── 글리치 효과 ── */
+.glitch-wrap{position:relative;}
+.glitch-wrap::before,.glitch-wrap::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;}
+.glitch-wrap::before{animation:glitch1 3.5s steps(2) infinite;color:#D4A017;opacity:.7;}
+.glitch-wrap::after{animation:glitch2 3.5s steps(2) .15s infinite;color:#CC2222;opacity:.5;}
+/* ── BARS ── */
+.bw{width:100%}.bl2{font-size:9px;color:#555;font-family:'Share Tech Mono',monospace;margin-bottom:2px;letter-spacing:.04em;}
+.bt{height:8px;background:#0D0D0D;border-radius:3px;overflow:hidden;border:1px solid #111;position:relative;}
+.bf{height:100%;border-radius:3px;transition:width .38s cubic-bezier(.4,0,.2,1);}
+.bf::after{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(0deg,transparent,rgba(255,255,255,.12));border-radius:5px 5px 0 0;pointer-events:none;}
+.bsp{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 4px,rgba(160,160,255,.1) 4px,rgba(160,160,255,.1) 5px);animation:spA .2s step-end infinite;pointer-events:none;}
+
+/* ── CARD ── */
+.card{width:92px;height:132px;flex-shrink:0;border-radius:12px;border:1.5px solid;padding:7px 6px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;cursor:pointer;transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s ease,filter .15s;box-shadow:0 4px 16px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);}
+.card:hover{transform:translateY(-32px) scale(1.16)!important;z-index:200!important;filter:brightness(1.18) drop-shadow(0 0 8px rgba(255,215,0,.35))!important;}
+.card.runc:hover{box-shadow:0 0 20px #FFD700,0 0 40px #FFD70044;}
+.card.rrar:hover{box-shadow:0 0 22px #CC2222,0 0 44px #CC222244;}
+.card.rleg:hover{box-shadow:0 0 28px #FFD700,0 0 56px #FFD70066,0 0 8px #fff;}
+.card.dim{opacity:.38;cursor:not-allowed;}.card.dim:hover{transform:none!important;}
+.ccst{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;font-family:'Share Tech Mono',monospace;z-index:2;}
+.card:not(.dim) .ccst{animation:neonBorder .9s ease infinite;}
+.cico{font-size:0;display:flex;align-items:center;justify-content:center;width:30px;height:30px;margin-top:11px;}
+.cico svg{width:26px;height:26px;}
+.cnm{font-size:8px;color:var(--G);font-weight:700;text-align:center;margin-top:3px;line-height:1.2;font-family:'Noto Serif KR',serif;}
+.cdv{width:75%;height:1px;margin:3px 0;}
+.cds{font-size:7px;color:#CCC;text-align:center;line-height:1.3;font-family:'Noto Serif KR',serif;padding:0 2px;}
+.crr{position:absolute;bottom:3px;right:3px;font-size:6px;font-family:'Share Tech Mono',monospace;}
+.csh{position:absolute;inset:0;border-radius:6px;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 50%);pointer-events:none;}
+.rleg{border-width:3px!important;box-shadow:0 0 18px rgba(255,180,0,.85),0 0 36px rgba(255,100,0,.4),inset 0 0 14px rgba(255,200,0,.08);animation:grareL .6s ease;}
+.rrar{border-width:2.5px!important;box-shadow:0 0 14px rgba(170,68,255,.7),0 0 28px rgba(170,68,255,.25);animation:grareRar .5s ease;}
+.runc{border-width:2px!important;box-shadow:0 0 8px rgba(68,136,255,.5),0 0 16px rgba(68,136,255,.2);animation:grareUn .5s ease;}
+.cdis{animation:cdis .38s forwards!important;}
+.hcw{transition:transform .15s ease;}.hcw:hover{z-index:200!important;}
+
+/* ── ENTITY ── */
+.ew{display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;}
+/* 플레이어 엔티티 패널 하단 G 선 */
+.ew.pl-entity::after{content:'';position:absolute;bottom:-4px;left:10%;width:80%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.3),transparent);}
+/* 적 엔티티 패널 상단 CR 선 */
+.ew.en-entity::before{content:'';position:absolute;top:-4px;left:10%;width:80%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,0,0,.3),transparent);}
+.esp{display:flex;align-items:center;justify-content:center;border-radius:4px;position:relative;overflow:hidden;}
+.enm{font-size:10px;font-family:'Cinzel',serif;letter-spacing:.1em;text-align:center;max-width:110px;font-weight:700;}
+.est{display:flex;gap:3px;min-height:16px;align-items:center;flex-wrap:wrap;}
+.sbg{font-size:8px;padding:1px 5px;border-radius:2px;font-family:'Share Tech Mono',monospace;}
+.se{filter:grayscale(1) brightness(.65)!important;transition:filter .3s;}
+.dn-fx{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(200,200,255,.07) 3px,rgba(200,200,255,.07) 4px);animation:sNoise .08s step-end infinite;pointer-events:none;border-radius:inherit;}
+
+/* ── DAMAGE POPUPS ── */
+.dp{position:absolute;pointer-events:none;z-index:700;font-family:'Noto Serif KR',serif;font-weight:900;text-align:center;white-space:nowrap;}
+.dn{color:#FF3322;font-size:24px;text-shadow:0 0 6px #FF3322,-1px -1px 0 var(--G),1px -1px 0 var(--G),-1px 1px 0 var(--G),1px 1px 0 var(--G);animation:dpF 1.5s ease forwards;}
+.ds{color:#FF6644;font-size:15px;text-shadow:0 0 5px #FF4422,-1px -1px 0 rgba(255,215,0,.5),1px -1px 0 rgba(255,215,0,.5);animation:dpF 1.5s ease forwards;}
+.dc{color:#FFE033;font-size:38px;text-shadow:0 0 4px rgba(139,0,0,.4),0 0 10px var(--G),0 0 20px #FF6600,-2px -2px 0 #8B0000,2px 2px 0 #8B0000;animation:critF 1.8s cubic-bezier(.2,1.4,.4,1) forwards;}
+.dcl{color:var(--G);font-size:12px;font-weight:900;letter-spacing:.12em;text-shadow:0 0 8px var(--G);animation:critF 1.8s ease .1s forwards;}
+.dh{color:#FFE066;font-size:17px;font-weight:900;text-shadow:0 0 8px #FFE066;animation:dpF 1.3s ease forwards;text-shadow:0 0 8px #FFD700,0 0 16px #FFD70066;}
+.dsh{color:#4488FF;font-size:15px;font-weight:900;text-shadow:0 0 8px #4488FF;animation:dpF 1.3s ease forwards;}
+.dst{font-size:11px;font-weight:700;font-family:'Noto Serif KR',serif;padding:3px 8px;border-radius:3px;border:1px solid;animation:dpF 1.5s ease forwards;}
+.sal{position:fixed;top:36%;left:50%;transform:translate(-50%,-50%);z-index:2000;color:var(--G);font-size:17px;font-family:'Noto Serif KR',serif;font-weight:900;letter-spacing:.25em;text-align:center;text-shadow:0 0 12px var(--G);border:2px solid var(--G);padding:12px 28px;background:rgba(0,0,0,.94);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) forwards;}
+
+/* ── FIELD ── */
+#fs{position:fixed;top:0;left:50%;transform:translateX(-50%);width:430px;max-width:100vw;height:100%;display:none;z-index:10;overflow-y:auto;overflow-x:hidden;background:var(--OB);scroll-behavior:smooth;}
+#fbg{position:absolute;left:0;top:0;width:100%;height:4600px;flex:1;min-height:4600px;}
+#fpaths{position:absolute;left:0;top:0;width:100%;height:4600px;pointer-events:none;z-index:5;}
+#fnodes{position:absolute;left:0;right:0;top:0;height:4600px;z-index:15;}
+#fplayer{position:absolute;z-index:20;pointer-events:none;transform:translate(-50%,0);transition:left .6s cubic-bezier(.34,1.56,.64,1),top .6s cubic-bezier(.34,1.56,.64,1);}
+#fpspr{filter:drop-shadow(0 0 10px var(--G));animation:floatY 2s ease infinite;display:block;}
+
+/* Realm header */
+#realm-header{position:absolute;top:0;left:0;right:0;z-index:30;pointer-events:none;text-align:center;padding:14px 16px 0;border-bottom:1px solid #D4A01722;border-bottom:1px solid #D4A01722;
+  background:linear-gradient(0deg,transparent,rgba(0,255,204,.03));}
+/* 구역명 DG 텍스트 글로우 */
+#realm-name{text-shadow:0 0 10px #FFD70033;}
+/* 필드 노드 수명 인디케이터 */
+.fn.reach::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:#FFD700;box-shadow:0 0 5px #FFD70088;animation:pulse .8s ease infinite;}
+#realm-name{font-size:11px;color:rgba(255,215,0,.5);font-family:'Share Tech Mono',monospace;letter-spacing:.4em;text-transform:uppercase;}
+#realm-sub{font-size:8px;color:rgba(255,255,255,.2);font-family:'Share Tech Mono',monospace;margin-top:2px;}
+
+/* Node dots */
+.fn{position:absolute;transform:translate(-50%,-50%);cursor:default;pointer-events:all;z-index:15;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.fnc{width:46px;height:46px;border-radius:50%;border:2.5px solid;display:flex;align-items:center;justify-content:center;position:relative;transition:all .2s;background:var(--OB);}
+.fnc svg{width:18px;height:18px;}
+.fnl{font-size:8px;font-family:'Noto Serif KR',serif;font-weight:700;text-align:center;letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 6px currentColor;max-width:56px;opacity:.9;}
+.fn.reach .fnc{animation:nGlow 1.15s ease infinite;cursor:pointer;animation:nGlow 1.15s ease infinite,neonPulse 1.6s ease infinite;opacity:1;}
+.fn.curr .fnc{animation:nCurr 1.5s ease infinite;box-shadow:0 0 0 2px #FFD700,0 0 20px #FFD70066;animation:nCurr 1.2s ease infinite;}
+.fn.done .fnc{opacity:.55;cursor:default;filter:brightness(.55);}
+.fn.lock .fnc{opacity:.35;cursor:default;filter:grayscale(.7) brightness(.6);}
+.fn.reach:hover .fnc{transform:scale(1.15);}
+
+/* Field bottom UI */
+#fui{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:430px;max-width:100vw;z-index:9000;background:linear-gradient(0deg,rgba(0,0,6,.99) 0%,rgba(4,4,14,.97) 100%);border-top:1px solid rgba(255,215,0,.18);padding:8px 14px 14px;backdrop-filter:blur(8px);display:block;}
+/* 에너지 인디케이터 도트 */
+.en-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 2px;background:#1a1a1a;border:1px solid #333;transition:all .2s;}
+.en-dot.full{background:#FFD700;border-color:#D4A017;box-shadow:0 0 4px #FFD70088;}
+.en-dot.used{background:#1a1200;border-color:#0a0800;}
+/* 턴 카운터 DG */
+.turn-counter{font-size:8px;color:#D4A017;font-family:'Share Tech Mono',monospace;letter-spacing:.2em;opacity:.7;}
+/* 카드 수명 바 */
+.card-life-bar{position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:0 0 5px 5px;background:#111;}
+.card-life-bar-fill{height:100%;border-radius:inherit;transition:width .3s;}
+
+/* Scroll indicator */
+#fscroll{position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:4px;pointer-events:none;}
+
+/* ── ULT OVERLAY ── */
+#uo{position:fixed;top:0;left:50%;transform:translateX(-50%);width:430px;max-width:100vw;height:100vh;z-index:5000;background:rgba(0,0,0,.97);display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px;font-family:'Noto Serif KR',serif;}
+#uo.on{display:flex;animation:fadeIn .4s ease;}
+#ug{font-size:72px;font-family:'Cinzel Decorative',serif;margin-bottom:16px;}
+#un{font-size:17px;color:#CC0000;font-weight:900;letter-spacing:.25em;text-align:center;margin-bottom:14px;animation:ultP 1.5s ease infinite;}
+#ud{font-size:11px;color:#CCC;text-align:center;line-height:1.9;max-width:280px;margin-bottom:18px;}
+#uq{font-size:10px;color:var(--G);font-style:italic;text-align:center;line-height:2.1;max-width:300px;border-top:1px solid rgba(255,215,0,.2);padding-top:14px;opacity:.85;display:none;}
+
+/* ── MODALS ── */
+.mbk{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:18px;}
+.mbx{background:var(--DOB);border-radius:10px;padding:22px;width:100%;max-width:370px;max-height:90vh;overflow-y:auto;animation:slideUp .35s cubic-bezier(.34,1.56,.64,1);}
+/* 모달 코너 기어 장식 */
+.mbx::before{content:'⚙';position:absolute;top:8px;left:10px;font-size:11px;color:rgba(255,215,0,.15);animation:cogSpin 4s linear infinite;}
+.mbx::after{content:'⚙';position:absolute;top:8px;right:10px;font-size:11px;color:rgba(255,215,0,.15);animation:cogSpinR 4s linear infinite;}
+.mbx{position:relative;}
+#tip{position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:22px;}
+#tip.on{display:flex;}
+
+/* ── EVENT MODAL (양피지 느낌) ── */
+.evt-box{background:linear-gradient(160deg,#1a1408,#0e0c06);border:1px solid #8B6914;border-radius:8px;padding:24px;width:100%;max-width:360px;position:relative;animation:slideUp .4s ease;box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 1px rgba(255,215,0,.1);}
+.evt-box::before{content:'';position:absolute;inset:4px;border:1px solid rgba(255,215,0,.12);border-radius:5px;pointer-events:none;}
+.evt-title{font-size:10px;color:var(--DG);font-family:'Share Tech Mono',monospace;letter-spacing:.35em;text-align:center;margin-bottom:16px;text-shadow:0 0 12px rgba(255,215,0,.3);letter-spacing:.25em;}
+.evt-body{font-size:11px;color:#D4C49A;font-family:'Noto Serif KR',serif;line-height:2;text-align:center;margin-bottom:20px;white-space:pre-line;}
+.evt-btn{width:100%;margin-bottom:8px;padding:11px 14px;border-radius:5px;border:1px solid;cursor:pointer;font-family:'Noto Serif KR',serif;font-size:11px;font-weight:700;text-align:center;transition:all .15s;position:relative;overflow:hidden;transition:all .15s;}
+.evt-btn:hover{filter:brightness(1.15);}
+.evt-btn-gold{background:linear-gradient(135deg,rgba(255,215,0,.12),rgba(255,215,0,.06));border-color:var(--G);color:var(--G);}
+.evt-btn-danger{background:linear-gradient(135deg,rgba(139,0,0,.18),rgba(139,0,0,.08));border-color:#8B3030;color:#FF8888;}
+.evt-btn-neutral{background:linear-gradient(135deg,rgba(80,80,80,.18),rgba(50,50,50,.08));border-color:#555;color:#AAA;}
+.evt-tag{display:inline-block;font-size:8px;font-family:'Share Tech Mono',monospace;padding:1px 6px;border-radius:2px;margin-right:6px;vertical-align:middle;}
+.tag-risk{background:rgba(139,0,0,.3);color:#FF8888;border:1px solid #8B3030;}
+.tag-reward{background:rgba(255,215,0,.15);color:var(--G);border:1px solid var(--DG);}
+.tag-neutral{background:rgba(80,80,80,.3);color:#AAA;border:1px solid #555;}
+
+/* ── COMBO / STATUS BADGES ── */
+.stack-badge{font-size:8px;font-family:'Share Tech Mono',monospace;padding:1px 5px;border-radius:2px;}
+.stack-overload{background:rgba(255,100,0,.25);color:#FF8844;border:1px solid #FF6600;}
+.stack-wound{background:rgba(200,0,0,.2);color:#FF6666;border:1px solid #CC0000;}
+.stack-armor{background:rgba(0,100,255,.2);color:#88AAFF;border:1px solid #4466FF;}
+.stack-rg{background:rgba(255,215,0,.12);color:#FFD700;border:1px solid #FFD70066;}
+.stack-reflect_curse{background:rgba(139,0,0,.2);color:#FF6666;border:1px solid #8B000088;animation:magFlare 1.4s ease infinite;}
+.stack-energy_lock{background:rgba(0,255,204,.12);color:#B8860B;border:1px solid #8B691488;animation:neonBorder 1s ease infinite;}
+.stack-stasis{background:rgba(100,100,255,.18);color:#8888FF;border:1px solid #6666FF;}
+.stack-ol{background:rgba(255,100,0,.22);color:#FF8844;border:1px solid #FF6600;}
+
+/* ── REALM TRANSITION BANNER ── */
+#realm-banner{position:fixed;top:0;left:50%;transform:translateX(-50%);width:430px;max-width:100vw;height:100vh;z-index:8000;background:#000;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;}
+#realm-banner.on{display:flex;animation:realmIn .8s ease;}
+#rb-num{font-size:80px;font-family:'Cinzel Decorative',serif;font-weight:900;background:linear-gradient(155deg,var(--G),#FFF0AA,var(--DG));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 30px rgba(255,215,0,.5));}
+#rb-name{font-size:16px;color:var(--G);font-family:'Cinzel',serif;letter-spacing:.3em;margin-top:8px;}
+#rb-theme{font-size:10px;color:#555;font-family:'Share Tech Mono',monospace;letter-spacing:.2em;margin-top:12px;}
+
+/* ── BUTTONS ── */
+.btn{border-radius:3px;cursor:pointer;font-family:'Noto Serif KR',serif;font-weight:700;letter-spacing:.1em;border:none;transition:all .15s;}
+.btn:active{transform:scale(.95);}
+.btn-g{background:transparent;border:2px solid var(--G);color:var(--G);padding:12px 38px;font-size:13px;
+  transition:all .2s;letter-spacing:.15em;}
+.btn-g:hover{box-shadow:0 0 24px var(--G),0 0 8px #FFD70044;border-color:#FFF0AA;color:#FFF0AA;letter-spacing:.22em;}
+.btn-a{background:transparent;border:1px solid;padding:5px 13px;font-size:8px;font-family:'Share Tech Mono',monospace;
+  transition:all .18s;}
+.btn-a:hover{box-shadow:0 0 10px currentColor;letter-spacing:.14em;}
+.dvl{display:flex;align-items:center;gap:8px;margin:8px 16px;}
+.dvl-l{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.35),transparent);}
+
+/* ── 손패 뷰어 스크롤바 ── */
+#hand-viewer::-webkit-scrollbar{width:4px;}
+#hand-viewer::-webkit-scrollbar-track{background:transparent;}
+#hand-viewer::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:2px;}
+/* ── 손패 더미 뱃지 애니메이션 ── */
+@keyframes pileGlow{0%,100%{box-shadow:0 0 8px #FFD70055;}50%{box-shadow:0 0 18px #FFD700AA,0 0 4px #FFD700;}}
+.hand-pile-btn{animation:neonPulse 1.8s ease infinite;}
+
+/* ── 전역 스크롤바 ── */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:rgba(0,0,0,.3);}
+::-webkit-scrollbar-thumb{background:rgba(255,215,0,.25);border-radius:2px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,215,0,.45);}
+/* ── 텍스트 선택 금지 (게임 UI) ── */
+.screen,.fn,.fnc,.fnl,.card,.btn,.evt-btn,.hcw{user-select:none;-webkit-user-select:none;}
+/* ── 포커스 아웃라인 제거 ── */
+*:focus{outline:none;}
+/* ── 카드 이름 글로우 ── */
+.cname{text-shadow:0 0 8px currentColor;}
+/* ── 배틀 화면 구분선 ── */
+.battle-sep{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.15),transparent);margin:4px 0;}
+
+
+/* ═══════════════════════════════════════════════════════
+   STORY DIALOG ENGINE
+═══════════════════════════════════════════════════════ */
+
+  // ── 새 노드: 파편 주조소 ──
+  if(node.type==='fragment_forge'){
+    var frag=GS.fragment||0;
+    var bd2=document.createElement('div');
+    bd2.style.cssText='position:fixed;inset:0;z-index:9700;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;';
+    var bx2=document.createElement('div');
+    bx2.style.cssText='background:rgba(4,4,18,.98);border:1.5px solid rgba(136,204,255,.3);border-radius:14px;width:320px;padding:20px;text-align:center;';
+    bx2.innerHTML='<div style="font-size:11px;color:#88CCFF;letter-spacing:.1em;margin-bottom:10px;">◆ 파편 주조소</div>'+
+      '<div style="font-size:9px;color:#888;margin-bottom:14px;">보유 파편: '+frag+'개<br>파편 2개로 덱의 카드 중 하나를 강화합니다.</div>'+
+      '<div id="_ff_hand" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:14px;max-height:160px;overflow-y:auto;"></div>'+
+      '<button id="_ff_skip" style="background:none;border:1px solid rgba(255,255,255,.15);color:#666;font-size:9px;padding:6px 16px;border-radius:6px;cursor:pointer;">건너뛰기</button>';
+    bd2.appendChild(bx2);document.body.appendChild(bd2);
+    // 덱 카드 표시
+    var _ffHand=document.getElementById('_ff_hand');
+    var _deck=[...GS.deck,...GS.storage||[]];
+    _deck.slice(0,12).forEach(function(c){
+      var cb2=document.createElement('button');
+      cb2.style.cssText='background:rgba('+Math.round(parseInt((CARDS[c.id]||{clr:'#888'}).clr.slice(1,3),16)*0.15)+',0,0,.8);border:1px solid rgba(136,204,255,.2);border-radius:6px;padding:6px 10px;font-size:9px;color:#aaa;cursor:'+(frag>=2?'pointer':'not-allowed')+';opacity:'+(frag>=2?'1':'0.4')+';';
+      cb2.textContent=(CARDS[c.id]||{name:c.id}).name;
+      if(frag>=2){
+        cb2.onclick=function(){
+          GS={...GS,fragment:frag-2};
+          // 카드 강화: cost-1 (최소0), 효과 +20%
+          var idx=GS.deck.findIndex(function(x){return x.uid===c.uid;});
+          if(idx>=0){var upgraded={...GS.deck[idx],cost:Math.max(0,GS.deck[idx].cost-1),_upgraded:true};GS={...GS,deck:GS.deck.map(function(x){return x.uid===c.uid?upgraded:x;});};}
+          bd2.remove();showNotif((CARDS[c.id]||{name:c.id}).name+' 강화 완료!','#88CCFF');
+          _tr=false;showField();
+        };
+      }
+      _ffHand.appendChild(cb2);
+    });
+    document.getElementById('_ff_skip').onclick=function(){bd2.remove();_tr=false;showField();};
+    return;
+  }
+  // ── 새 노드: 공허 균열 ──
+  if(node.type==='void_rift'){
+    _nodeTransFade(function(){
+      if(Math.random()<0.5){
+        // 큰 보상
+        var rewards=[
+          function(){var c=Object.values(CARDS)[Math.floor(Math.random()*60)];GS=addCardSafe(GS,mkCard(c.id));showNotif(c.name+' 카드 획득!','#AAFFAA');},
+          function(){GS={...GS,gold:(GS.gold||0)+120};showNotif('황금 +120','#FFD700');},
+          function(){GS={...GS,player:{...GS.player,maxAxis:GS.player.maxAxis+20,axis:Math.min(GS.player.axis+20,GS.player.maxAxis+20)}};showNotif('최대 체력 +20','#FF8844');},
+          function(){GS={...GS,fragment:(GS.fragment||0)+2};showNotif('◆ 파편 +2','#88CCFF');}
+        ];
+        rewards[Math.floor(Math.random()*rewards.length)]();
+      } else {
+        // 위험
+        var dangers=[
+          function(){GS={...GS,player:{...GS.player,axis:Math.max(1,GS.player.axis-Math.floor(GS.player.maxAxis*0.3))}};showNotif('공허가 체력을 빼앗았다! -30%','#FF4444');},
+          function(){if(GS.deck.length>6){var idx=Math.floor(Math.random()*(GS.deck.length-1));var lost=GS.deck[idx];GS={...GS,deck:GS.deck.filter(function(_,i){return i!==idx;})};showNotif(lost.id+' 카드가 사라졌다!','#FF4444');}},
+          function(){GS={...GS,gold:Math.floor((GS.gold||0)*0.5)};showNotif('황금의 절반을 잃었다!','#FF4444');}
+        ];
+        dangers[Math.floor(Math.random()*dangers.length)]();
+      }
+      updateFUI();_tr=false;showField();
+    });
+    return;
+  }
+  // ── 새 노드: 유물 성소 ──
+  if(node.type==='reliquary'){
+    var rf=GS.fragment||0;
+    var bd3=document.createElement('div');
+    bd3.style.cssText='position:fixed;inset:0;z-index:9700;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;';
+    var bx3=document.createElement('div');
+    bx3.style.cssText='background:rgba(4,4,18,.98);border:1.5px solid rgba(255,215,0,.3);border-radius:14px;width:320px;padding:20px;';
+    var relicPool=(GS.relicBag||[]).slice(0,3);
+    if(!relicPool.length){bx3.innerHTML='<div style="text-align:center;color:#555;padding:20px;font-size:9px;">유물이 없습니다.</div>';bx3.innerHTML+='<div style="text-align:center;"><button onclick="this.closest('div').parentNode.remove();_tr=false;showField();" style="background:none;border:1px solid rgba(255,255,255,.15);color:#666;font-size:9px;padding:6px 16px;border-radius:6px;cursor:pointer;">닫기</button></div>';}
+    else{
+      bx3.innerHTML='<div style="font-size:11px;color:#FFD700;letter-spacing:.1em;margin-bottom:8px;text-align:center;">유물 성소</div>'+
+        '<div style="font-size:9px;color:#888;margin-bottom:12px;text-align:center;">보유 파편: '+rf+'개 · 유물 1개당 파편 3개</div>';
+      relicPool.forEach(function(rid){
+        var r=RELICS.find(function(x){return x.id===rid;});if(!r)return;
+        var ri=document.createElement('div');
+        ri.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,215,0,.15);margin-bottom:6px;background:rgba(255,215,0,.04);';
+        ri.innerHTML='<div style="font-size:16px;">'+r.icon+'</div>'+
+          '<div style="flex:1;"><div style="font-size:10px;color:#FFD700;">'+r.name+'</div><div style="font-size:8px;color:#666;">'+r.desc+'</div></div>'+
+          '<button data-rid="'+rid+'" style="background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.3);color:#FFD700;font-size:8px;padding:4px 10px;border-radius:5px;cursor:'+(rf>=3?'pointer':'not-allowed')+';opacity:'+(rf>=3?'1':'0.4')+';">구매</button>';
+        bx3.appendChild(ri);
+      });
+      var sk3=document.createElement('button');
+      sk3.textContent='닫기';sk3.style.cssText='display:block;margin:10px auto 0;background:none;border:1px solid rgba(255,255,255,.15);color:#666;font-size:9px;padding:6px 16px;border-radius:6px;cursor:pointer;';
+      sk3.onclick=function(){bd3.remove();_tr=false;showField();};bx3.appendChild(sk3);
+    }
+    bd3.appendChild(bx3);document.body.appendChild(bd3);
+    bd3.querySelectorAll('[data-rid]').forEach(function(btn){
+      btn.onclick=function(){
+        if((GS.fragment||0)<3)return;
+        var rid2=this.dataset.rid;
+        GS={...GS,fragment:(GS.fragment||0)-3,relicBag:(GS.relicBag||[]).filter(function(x){return x!==rid2;}),relicsEquipped:[...(GS.relicsEquipped||[]),{id:rid2}]};
+        bd3.remove();showNotif(RELICS.find(function(x){return x.id===rid2;})||{name:rid2}.name+' 장착!','#FFD700');_tr=false;showField();
+      };
+    });
+    return;
+  }#story-overlay{
+  position:fixed;inset:0;z-index:9500;
+  display:none;flex-direction:column;justify-content:flex-end;
+  pointer-events:none;
+}
+#story-overlay.on{display:flex;pointer-events:all;}
+
+/* 배경 그라디언트 — 하단 블랙아웃 */
+#story-box{
+  position:relative;
+  width:100%;max-width:430px;margin:0 auto;
+  background:linear-gradient(0deg,rgba(4,4,10,1) 0%,rgba(4,4,10,.97) 80%,transparent 100%);
+  border-top:1px solid rgba(255,215,0,.14);
+  padding:18px 22px 28px;
+  animation:slideUp .22s ease both;
+  min-height:140px;
+}
+/* 화자 이름 */
+#story-speaker{
+  font-size:9px;color:var(--G);
+  font-family:'Share Tech Mono',monospace;
+  letter-spacing:.35em;margin-bottom:10px;
+  text-shadow:0 0 8px rgba(255,215,0,.4);
+  min-height:14px;
+}
+/* 대사 텍스트 */
+#story-text{
+  font-size:13px;color:#D4C49A;
+  font-family:'Noto Serif KR',serif;
+  line-height:2;min-height:60px;
+  letter-spacing:.04em;
+}
+/* 커서 깜빡이 */
+#story-cursor{
+  display:inline-block;width:2px;height:13px;
+  background:var(--G);margin-left:3px;
+  vertical-align:middle;animation:pulse .6s ease infinite;
+}
+/* 진행 힌트 */
+#story-hint{
+  position:absolute;right:18px;bottom:10px;
+  font-size:7px;color:rgba(255,215,0,.2);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.12em;
+}
+/* 진행 바 */
+#story-progress{
+  position:absolute;top:0;left:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,215,0,.5),transparent);
+  transition:width .3s ease;
+}
+/* 페이지 인디케이터 도트 */
+#story-dots{
+  display:flex;gap:5px;justify-content:center;
+  margin-top:12px;
+}
+.s-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,215,0,.15);
+  transition:all .2s;
+}
+.s-dot.done{background:rgba(255,215,0,.6);}
+.s-dot.cur{background:var(--G);box-shadow:0 0 5px var(--G);}
+
+
+/* ── 체인 콤보 표시 ── */
+#combo-badge{
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(10% + 170px);z-index:6500;
+  font-size:11px;font-family:'Share Tech Mono',monospace;
+  color:var(--G);letter-spacing:.15em;font-weight:700;
+  text-shadow:0 0 10px rgba(255,215,0,.6);
+  pointer-events:none;opacity:0;transition:opacity .2s;
+  white-space:nowrap;
+}
+#combo-badge.on{opacity:1;animation:popIn .25s ease;}
+
+
+/* ════════════════════════════════════════
+   CHAIN COMBO SYSTEM — UI
+════════════════════════════════════════ */
+
+/* ── 체인 바 (상단 슬롯) ── */
+#chain-bar{
+  position:fixed;top:56px;left:50%;transform:translateX(-50%);
+  width:320px;max-width:96vw;
+  display:flex!important;align-items:center;justify-content:center;gap:0;
+  z-index:9100;pointer-events:none;
+  opacity:0;transition:opacity .25s;
+}
+#chain-bar.visible{opacity:1;}
+
+.chain-slot{
+  width:88px;height:34px;
+  border:1px solid rgba(255,215,0,.2);
+  border-radius:0;
+  background:rgba(4,4,18,.88);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;color:rgba(255,255,255,.2);
+  letter-spacing:.06em;
+  position:relative;overflow:hidden;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.chain-slot.filled{
+  border-color:rgba(255,215,0,.65);
+  color:#FFD700;
+  background:rgba(255,215,0,.1);
+  box-shadow:inset 0 0 14px rgba(255,215,0,.12),0 0 8px rgba(255,215,0,.15);
+  text-shadow:0 0 8px rgba(255,215,0,.6);
+}
+.chain-slot.filled::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,215,0,.15) 0%,transparent 60%);
+}
+.chain-arrow{
+  width:32px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:rgba(255,215,0,.2);
+  background:rgba(4,4,18,.88);
+  border-top:1px solid rgba(255,215,0,.1);
+  border-bottom:1px solid rgba(255,215,0,.1);
+  transition:color .2s,text-shadow .2s;
+}
+.chain-arrow.lit{
+  color:rgba(255,215,0,.9);
+  text-shadow:0 0 10px rgba(255,215,0,.8);
+  background:rgba(255,215,0,.06);
+}
+
+@keyframes slotIn{
+  0%{transform:scale(1.3);opacity:.5;}
+  100%{transform:scale(1);opacity:1;}
+}
+
+/* ── 슬라이스 오버레이 (전체화면) ── */
+#combo-overlay{
+  position:fixed;inset:0;z-index:9900;
+  pointer-events:none;
+  display:none;
+}
+#combo-overlay.active{display:block;}
+
+/* 상단 절반 */
+#combo-top{
+  position:absolute;top:0;left:0;right:0;height:50%;
+  background:inherit;overflow:hidden;
+  transform:translateX(0);
+}
+#combo-top-bg{
+  position:absolute;inset:0;
+  background:rgba(4,4,10,.96);
+}
+/* 하단 절반 */
+#combo-bot{
+  position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:inherit;overflow:hidden;
+  transform:translateX(0);
+}
+#combo-bot-bg{
+  position:absolute;inset:0;
+  background:rgba(4,4,10,.96);
+}
+
+/* 슬라이스 중앙선 */
+#combo-slash{
+  position:absolute;top:50%;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--G),#fff,var(--G),transparent);
+  transform:translateY(-50%) scaleX(0);
+  transform-origin:center;
+  box-shadow:0 0 12px 2px rgba(255,215,0,.8);
+}
+
+/* COMBO 텍스트 */
+#combo-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:48px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:#fff;
+  letter-spacing:.25em;
+  text-shadow:
+    0 0 20px var(--G),
+    0 0 40px var(--G),
+    2px 2px 0 rgba(139,0,0,.8),
+    -2px -2px 0 rgba(139,0,0,.5);
+  white-space:nowrap;
+  z-index:2;
+}
+
+/* 증기 파티클 */
+#combo-sparks{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:1px;height:1px;
+  pointer-events:none;
+}
+.c-spark{
+  position:absolute;
+  width:4px;height:4px;
+  border-radius:50%;
+  background:var(--G);
+  box-shadow:0 0 6px var(--G);
+}
+
+/* 흑백 반전 */
+@keyframes flashInvert{
+  0%,100%{filter:none;}
+  50%{filter:invert(1) brightness(1.5);}
+}
+/* 슬라이스 애니메이션 */
+@keyframes sliceTop{
+  0%{transform:translateX(0);}
+  30%{transform:translateX(18px);}
+  70%{transform:translateX(18px);}
+  100%{transform:translateX(0);}
+}
+@keyframes sliceBot{
+  0%{transform:translateX(0);}
+  30%{transform:translateX(-18px);}
+  70%{transform:translateX(-18px);}
+  100%{transform:translateX(0);}
+}
+@keyframes slashLine{
+  0%{transform:translateY(-50%) scaleX(0);opacity:0;}
+  20%{transform:translateY(-50%) scaleX(1);opacity:1;}
+  80%{transform:translateY(-50%) scaleX(1);opacity:.5;}
+  100%{transform:translateY(-50%) scaleX(0);opacity:0;}
+}
+@keyframes comboTextIn{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(-4deg);opacity:0;}
+  50%{transform:translate(-50%,-50%) scale(1.15) rotate(1deg);opacity:1;}
+  70%{transform:translate(-50%,-50%) scale(0.95) rotate(0deg);}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0deg);opacity:1;}
+}
+@keyframes comboTextOut{
+  0%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+  100%{transform:translate(-50%,-52%) scale(0.9);opacity:0;}
+}
+
+
+@keyframes sparkFly{
+  0%{transform:translate(0,0);opacity:1;}
+  100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0;}
+}
+
+
+/* ════════════════════════════════════════
+   COMBO TYPE OVERLAYS
+════════════════════════════════════════ */
+
+/* ── 회복 콤보: 황금 파동 블룸 ── */
+#combo-bloom{
+  position:fixed;inset:0;z-index:9900;
+  display:none;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,
+    rgba(255,215,0,0) 0%,
+    rgba(255,215,0,0) 40%,
+    rgba(255,215,0,0) 100%);
+}
+#combo-bloom.active{display:block;}
+#combo-bloom-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:40px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:var(--G);letter-spacing:.2em;
+  text-shadow:0 0 30px var(--G),0 0 60px rgba(255,215,0,.5);
+  white-space:nowrap;
+}
+#combo-bloom-ring{
+  position:absolute;top:50%;left:50%;
+  width:0;height:0;border-radius:50%;
+  border:3px solid var(--G);
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 20px var(--G),inset 0 0 20px rgba(255,215,0,.1);
+}
+
+/* ── 방어 콤보: 기어 방패 폭발 ── */
+#combo-shield{
+  position:fixed;inset:0;z-index:9900;
+  display:none;pointer-events:none;
+}
+#combo-shield.active{display:block;}
+#combo-shield-center{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:1px;height:1px;
+}
+#combo-shield-hex{
+  position:absolute;top:50%;left:50%;
+  width:140px;height:140px;
+  transform:translate(-50%,-50%) scale(0) rotate(0deg);
+  border:2px solid rgba(255,215,0,.8);
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  background:rgba(255,215,0,.05);
+  box-shadow:0 0 20px rgba(255,215,0,.4),inset 0 0 30px rgba(255,215,0,.1);
+}
+#combo-shield-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:36px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:var(--G);letter-spacing:.15em;
+  text-shadow:0 0 20px var(--G);
+  white-space:nowrap;
+}
+
+/* ── 유틸 콤보: 시계 역류 / 기어 스핀 ── */
+#combo-clock{
+  position:fixed;inset:0;z-index:9900;
+  display:none;pointer-events:none;
+}
+#combo-clock.active{display:block;}
+#combo-clock-gear{
+  position:absolute;top:50%;left:50%;
+  width:180px;height:180px;
+  transform:translate(-50%,-50%) rotate(0deg) scale(0);
+  opacity:.7;
+}
+#combo-clock-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:34px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:#8899BB;letter-spacing:.15em;
+  text-shadow:0 0 20px #4466AA,0 0 40px rgba(68,102,170,.4);
+  white-space:nowrap;
+}
+
+/* ── 공통 애니메이션 ── */
+@keyframes bloomRing{
+  0%{width:0;height:0;opacity:1;}
+  100%{width:340px;height:340px;opacity:0;}
+}
+@keyframes bloomText{
+  0%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+  40%{transform:translate(-50%,-50%) scale(1.1);opacity:1;}
+  70%{transform:translate(-50%,-50%) scale(.97);}
+  100%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+}
+@keyframes bloomOut{
+  0%{opacity:1;}100%{opacity:0;}
+}
+@keyframes hexPop{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(-30deg);opacity:0;}
+  50%{transform:translate(-50%,-50%) scale(1.15) rotate(10deg);opacity:1;}
+  75%{transform:translate(-50%,-50%) scale(.95) rotate(0deg);}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0deg);opacity:1;}
+}
+@keyframes gearSpin{
+  0%{transform:translate(-50%,-50%) rotate(0deg) scale(0);}
+  20%{transform:translate(-50%,-50%) rotate(-40deg) scale(1.1);}
+  100%{transform:translate(-50%,-50%) rotate(-360deg) scale(1);}
+}
+@keyframes clockText{
+  0%{transform:translate(-50%,-50%) scale(0) skewX(-8deg);opacity:0;}
+  40%{transform:translate(-50%,-50%) scale(1.08) skewX(2deg);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1) skewX(0deg);}
+}
+@keyframes glitch{
+  0%,100%{clip-path:none;transform:translate(-50%,-50%) scale(1);}
+  20%{clip-path:inset(20% 0 60% 0);transform:translate(calc(-50% + 4px),-50%) scale(1);}
+  40%{clip-path:inset(60% 0 20% 0);transform:translate(calc(-50% - 3px),-50%) scale(1);}
+  60%{clip-path:none;}
+}
+@keyframes shieldShard{
+  0%{transform:translate(0,0) scale(1);opacity:1;}
+  100%{transform:translate(var(--sx),var(--sy)) scale(0);opacity:0;}
+}
+
+
+.card-relic{border-color:#FF6622!important;box-shadow:0 0 20px #FF662288,0 0 40px #CC440044,inset 0 0 16px #FF662211!important;animation:grareRel .7s ease;}
+.card-relic .card-name{color:#FF6622!important;}
+
+
+@keyframes grareUn{0%{box-shadow:0 0 0 rgba(68,136,255,0);}100%{box-shadow:0 0 8px rgba(68,136,255,.5),0 0 16px rgba(68,136,255,.2);}}
+@keyframes grareRar{0%{box-shadow:0 0 0 rgba(170,68,255,0);}100%{box-shadow:0 0 14px rgba(170,68,255,.7),0 0 28px rgba(170,68,255,.25);}}
+@keyframes grareL{0%{box-shadow:0 0 0 rgba(255,180,0,0);}50%{box-shadow:0 0 24px rgba(255,180,0,.9),0 0 48px rgba(255,100,0,.5);}100%{box-shadow:0 0 18px rgba(255,180,0,.85),0 0 36px rgba(255,100,0,.4);}}
+@keyframes grareRel{0%{box-shadow:0 0 0 rgba(255,102,34,0);}50%{box-shadow:0 0 28px #FF662299,0 0 56px #CC440055;}100%{box-shadow:0 0 20px #FF662288,0 0 40px #CC440044;}}
+
+
+@keyframes atkFlash{0%{opacity:.5;}100%{opacity:0;}}
+@keyframes nukeFlash{0%{opacity:.8;}50%{opacity:.6;}100%{opacity:0;}}
+
+
+@keyframes ultBgIn{0%{background:rgba(0,0,0,0);}100%{background:rgba(100,0,0,.92);}}
+@keyframes ultBgOut{0%{background:rgba(100,0,0,.92);}100%{background:rgba(0,0,0,0);opacity:0;}}
+@keyframes ultWarn{0%{transform:scaleX(0);opacity:0;}100%{transform:scaleX(1);opacity:1;}}
+@keyframes ultName{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes ultTitle{0%{opacity:0;transform:scale(.8);}100%{opacity:1;transform:scale(1);}}
+@keyframes ultDesc{0%{opacity:0;}100%{opacity:1;}}
+@keyframes ultLine{0%{transform:scaleX(0);}100%{transform:scaleX(1);}}
+
+
+@keyframes nodeRing{0%,100%{transform:scale(1);opacity:.7;}50%{transform:scale(1.15);opacity:.3;}}
+
+
+#fs::before{content:'';position:fixed;inset:0;background:var(--OB);z-index:-1;pointer-events:none;}
+
+@keyframes hint-blink{0%,100%{opacity:.3;}50%{opacity:.9;}}
+#map-clock{transition:opacity .2s;}body.inbattle #map-clock{display:none!important;}
+#eq-bottom,#eq-top,#eq-left,#eq-right{border-radius:3px;}
+
+#music-ctrl{
+  position:fixed;top:8px;right:8px;z-index:9100;
+  display:flex;align-items:center;gap:6px;
+  font-family:'Share Tech Mono',monospace;
+  font-size:8px;color:rgba(255,215,0,.5);
+  cursor:pointer;
+  pointer-events:all;
+}
+#music-ctrl:hover{color:rgba(255,215,0,.9);}
+#music-vol{width:48px;height:3px;cursor:pointer;accent-color:#FFD700;opacity:.6;}
+body.inbattle #music-ctrl{display:none;}
+body.inbattle #eq-canvas{display:none!important;}
+
+
+@keyframes nodeEnter{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(0.4);}
+  70%{transform:translate(-50%,-50%) scale(1.1);}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(1);}
+}
+
+
+/* 카드 사용 시 위로 빠르게 날아가기 */
+@keyframes cardPlay{
+  0%{transform:translateY(0) scale(1);opacity:1;}
+  60%{transform:translateY(-180px) scale(1.18);opacity:0.7;}
+  100%{transform:translateY(-280px) scale(0.5);opacity:0;}
+}
+@keyframes cardHover{
+  0%,100%{filter:brightness(1);}
+  50%{filter:brightness(1.15);}
+}
+/* 에너지 펄스 */
+@keyframes energyPulse{
+  0%,100%{box-shadow:0 0 8px currentColor;}
+  50%{box-shadow:0 0 22px currentColor,0 0 44px currentColor;}
+}
+/* 피해 숫자 팝업 */
+@keyframes dmgPop{
+  0%{transform:translateY(0) scale(0.6);opacity:0;}
+  30%{transform:translateY(-20px) scale(1.3);opacity:1;}
+  100%{transform:translateY(-60px) scale(1);opacity:0;}
+}
+/* 적 피격 흔들림 */
+@keyframes enemyHit{
+  0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-10px) scale(1.04);}
+  40%{transform:translateX(12px) scale(0.97);}
+  60%{transform:translateX(-7px);}
+  80%{transform:translateX(5px);}
+}
+/* 플레이어 피격 */
+@keyframes playerHit{
+  0%,100%{filter:brightness(1);}
+  30%{filter:brightness(2) saturate(0);}
+  60%{filter:brightness(1.5) sepia(0.3);}
+}
+/* 버튼 클릭 피드백 */
+@keyframes btnClick{
+  0%{transform:scale(1);}
+  40%{transform:scale(0.93);}
+  100%{transform:scale(1);}
+}
+
+
+/* 상점 개선 */
+.shop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px;}
+.shop-card-wrap{position:relative;cursor:pointer;border-radius:10px;padding:10px 8px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);
+  transition:background 0.2s,border 0.2s,transform 0.15s;}
+.shop-card-wrap:hover{background:rgba(255,215,0,0.06);border-color:rgba(255,215,0,0.2);transform:translateY(-3px);}
+.shop-price-tag{position:absolute;top:6px;right:6px;
+  font-family:'Share Tech Mono',monospace;font-size:9px;
+  background:rgba(0,0,0,0.7);border:1px solid rgba(255,215,0,0.4);
+  color:#FFD700;padding:2px 6px;border-radius:4px;}
+.shop-section-title{font-family:'Share Tech Mono',monospace;font-size:8px;
+  color:rgba(255,215,0,0.4);letter-spacing:.2em;margin:10px 0 6px;padding-bottom:4px;
+  border-bottom:1px solid rgba(255,215,0,0.08);}
+
+
+@keyframes cardPlay{
+  0%{transform:scale(1);}
+  30%{transform:scale(1.12) rotate(-1.5deg);}
+  60%{transform:scale(1.08) rotate(1deg);}
+  100%{transform:scale(1);}
+}
+@keyframes hitFlash{
+  0%,100%{filter:brightness(1);}
+  40%{filter:brightness(2.2) saturate(0.3);}
+}
+@keyframes dmgFloat{
+  0%{opacity:1;transform:translateY(0);}
+  100%{opacity:0;transform:translateY(-45px);}
+}
+@keyframes enemyShake{
+  0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-6px);}
+  40%{transform:translateX(6px);}
+  60%{transform:translateX(-4px);}
+  80%{transform:translateX(4px);}
+}
+@keyframes cardDraw{
+  0%{opacity:0;transform:translateY(30px) scale(0.85);}
+  70%{transform:translateY(-4px) scale(1.04);}
+  100%{opacity:1;transform:translateY(0) scale(1);}
+}
+
+
+/* ════════ 비주얼 업그레이드 ════════ */
+
+/* ── 전역 폰트/색 변수 강화 ── */
+:root{
+  --G:#FFD700;--DG:#CC3300;--BG:rgba(4,4,14,1);
+  --card-glow:0 0 20px rgba(255,215,0,.12);
+  --panel:rgba(6,5,18,.97);
+  --border-gold:rgba(255,215,0,.22);
+  --border-dim:rgba(255,255,255,.06);
+}
+
+/* ── body 배경 심화 ── */
+body{
+  background:radial-gradient(ellipse at 50% 0%,#0a0516 0%,#000 60%)!important;
+}
+
+/* ── 카드 업그레이드 ── */
+.card{
+  box-shadow:0 6px 20px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05)!important;
+  backdrop-filter:blur(2px);
+}
+.card:hover{
+  box-shadow:0 0 18px rgba(255,215,0,.3),0 8px 28px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+.card.selected{
+  box-shadow:0 0 26px rgba(255,215,0,.55),0 0 6px rgba(255,215,0,.35)!important;
+}
+/* 강화 카드 특별 표시 */
+.card[data-upgraded="true"]{
+  border-color:rgba(136,204,255,.7)!important;
+  box-shadow:0 0 14px rgba(136,204,255,.25),0 6px 20px rgba(0,0,0,.7)!important;
+}
+
+/* ── FUI (하단 HUD) 업그레이드 ── */
+#fui{
+  background:linear-gradient(to top,rgba(2,2,10,.98) 0%,rgba(4,4,18,.92) 100%)!important;
+  border-top:1px solid rgba(255,215,0,.15)!important;
+  box-shadow:0 -4px 32px rgba(0,0,0,.9),0 -1px 0 rgba(255,215,0,.08)!important;
+}
+
+/* ── HP/에너지 바 ── */
+.axis-bar{
+  height:8px!important;
+  border-radius:4px!important;
+  background:rgba(255,255,255,.06)!important;
+  overflow:hidden;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.5);
+}
+.axis-fill{
+  height:100%;
+  border-radius:4px;
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 0 8px currentColor;
+}
+
+/* ── 체인 바 업그레이드 ── */
+#chain-bar.visible{
+  filter:drop-shadow(0 0 8px rgba(255,215,0,.3));
+}
+.chain-slot{
+  background:rgba(4,4,18,.9)!important;
+  backdrop-filter:blur(4px);
+}
+.chain-slot.filled{
+  box-shadow:0 0 12px rgba(255,215,0,.35),inset 0 0 8px rgba(255,215,0,.08)!important;
+}
+
+/* ── 노드 ── */
+@keyframes nodeRing{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:.8;transform:scale(1.08);}}
+@keyframes nodeEnter{from{opacity:0;transform:translate(-50%,-50%) scale(.7);}to{opacity:1;transform:translate(-50%,-50%) scale(1);}}
+
+/* ── VFX 텍스트 팝업 ── */
+.vfx-stat{
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;
+  font-weight:bold;
+  text-shadow:0 0 10px currentColor;
+  pointer-events:none;
+}
+
+/* ── 상점 업그레이드 ── */
+.shop-item:hover{
+  transform:translateY(-3px) scale(1.03)!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.8),0 0 14px rgba(255,215,0,.12)!important;
+}
+
+/* ── 전투 배경 그라디언트 ── */
+#root{
+  background:linear-gradient(180deg,#020208 0%,#04020e 40%,#060210 100%);
+}
+
+/* ── 알림 팝업 ── */
+#notif-bar{
+  backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 24px rgba(0,0,0,.8),0 0 0 1px rgba(255,215,0,.1)!important;
+}
+
+/* ── 인텐트 UI ── */
+#enemy-intent{
+  backdrop-filter:blur(4px);
+  background:rgba(4,4,18,.85)!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-radius:10px!important;
+}
+
+/* ── 스크롤바 ── */
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.03);}
+::-webkit-scrollbar-thumb{background:rgba(255,215,0,.3);border-radius:2px;}
+
+/* ── 맵 배경 ── */
+#fs{
+  background:radial-gradient(ellipse at 50% 30%,rgba(20,10,40,.6) 0%,rgba(0,0,0,1) 70%)!important;
+}
+
+/* ── 게임오버 / 승리 화면 ── */
+#gameover-overlay, #win-overlay{
+  backdrop-filter:blur(12px);
+}
+
+/* ── 기어 조각 표시 ── */
+#fgear-shard{
+  background:rgba(136,204,255,.08);
+  border:1px solid rgba(136,204,255,.2);
+  border-radius:4px;
+  padding:2px 7px;
+  font-size:9px;
+  color:#88CCFF;
+  transition:color .2s,border-color .2s;
+}
+#fgear-shard:hover{
+  color:#AADDFF;border-color:rgba(136,204,255,.4);
+}
+
+/* ── 업적 팝업 업그레이드 ── */
+.ach-popup{
+  backdrop-filter:blur(12px);
+  animation:achSlideIn .38s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+@keyframes achSlideIn{
+  from{opacity:0;transform:translateX(-50%) translateY(50px) scale(.9);}
+  to{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}
+}
+
+/* ── 타이틀 로고 글로우 ── */
+#title-logo{
+  text-shadow:0 0 40px rgba(255,215,0,.6),0 0 80px rgba(255,215,0,.2);
+  animation:logoBreath 3s ease-in-out infinite;
+}
+@keyframes logoBreath{
+  0%,100%{text-shadow:0 0 40px rgba(255,215,0,.5),0 0 80px rgba(255,215,0,.15);}
+  50%{text-shadow:0 0 60px rgba(255,215,0,.8),0 0 120px rgba(255,215,0,.3);}
+}
+
+
+/* ════════ 체인 콤보 UI v3 ════════ */
+
+
+/* 전체화면 슬래시 */
+#chain-slash-full{
+  position:fixed;inset:0;z-index:9300;pointer-events:none;display:none;overflow:hidden;
+}
+#chain-slash-full.active{display:block;}
+#chain-slash-line{
+  position:absolute;top:50%;left:-10%;width:120%;height:3px;
+  background:linear-gradient(90deg,transparent,rgba(255,215,0,.2) 25%,#fff 50%,rgba(255,215,0,.2) 75%,transparent);
+  box-shadow:0 0 18px 4px rgba(255,215,0,.7),0 0 40px 8px rgba(255,215,0,.2);
+  transform:rotate(-12deg) translateY(-50%);
+  animation:slashSweep .3s ease forwards;
+}
+@keyframes slashSweep{
+  from{transform:rotate(-12deg) translateY(-50%) scaleX(0);opacity:0;}
+  40%{opacity:1;}
+  to{transform:rotate(-12deg) translateY(-50%) scaleX(1);opacity:0;}
+}
+
+/* 체인 패널 — 좌상단 */
+#chain-overlay{
+  position:fixed;top:62px;left:8px;
+  z-index:9500;pointer-events:none;display:none;width:200px;
+}
+#chain-overlay.active{display:block;}
+
+#chain-panel{
+  background:rgba(2,2,10,.95);
+  border-left:2px solid rgba(255,215,0,.7);
+  padding:8px 12px 8px 10px;
+  display:flex;flex-direction:column;gap:4px;
+  box-shadow:4px 0 24px rgba(0,0,0,.8),-2px 0 0 rgba(255,215,0,.1);
+  opacity:0;transform:translateX(-12px);
+  transition:opacity .18s,transform .18s;
+}
+#chain-overlay.active #chain-panel{opacity:1;transform:translateX(0);}
+
+/* 라벨 */
+.cp-label{
+  font-size:7px;color:rgba(255,215,0,.45);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.14em;
+}
+/* 카드명 */
+#chain-prev-name{
+  font-size:14px;font-weight:900;color:#FFD700;
+  font-family:'Noto Serif KR',serif;
+  text-shadow:0 0 10px rgba(255,215,0,.5);
+  line-height:1.2;
+}
+#chain-prev-type{
+  font-size:8px;color:rgba(255,215,0,.4);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.08em;
+}
+/* 힌트 */
+#chain-next-hint{
+  font-size:8px;color:rgba(255,255,255,.3);
+  font-family:'Share Tech Mono',monospace;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:4px;margin-top:2px;
+}
+
+/* 타이머 라인 */
+#ct-bar-line{
+  height:2px;background:rgba(255,255,255,.08);border-radius:1px;overflow:hidden;
+}
+#ct-fill{
+  height:100%;background:linear-gradient(90deg,#FFD700,#FF8800);
+  transition:width .04s linear;border-radius:1px;
+  box-shadow:0 0 4px rgba(255,215,0,.6);
+}
+#ct-num{
+  font-size:11px;font-weight:900;color:rgba(255,215,0,.6);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.05em;
+}
+.ct-row{display:flex;align-items:center;gap:6px;margin-top:2px;}
+
+/* 콤보 결과 텍스트 — 화면 중앙 상단 */
+#chain-result{
+  position:fixed;
+  top:28%;left:50%;
+  transform:translate(-50%,-50%) scale(0) rotate(-2deg);
+  z-index:9600;pointer-events:none;
+  font-family:'Cinzel Decorative',serif;
+  font-size:0;/* JS에서 설정 */
+  font-weight:900;color:#FFF;
+  letter-spacing:.15em;white-space:nowrap;
+  text-shadow:0 0 24px var(--G),0 0 48px var(--G),0 2px 0 rgba(0,0,0,.8);
+  -webkit-text-stroke:1px rgba(255,215,0,.3);
+}
+#chain-cancel{
+  position:fixed;
+  top:28%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  z-index:9600;pointer-events:none;
+  font-family:'Share Tech Mono',monospace;
+  font-size:14px;font-weight:900;
+  color:rgba(255,60,60,.85);letter-spacing:.18em;
+  text-shadow:0 0 16px rgba(255,60,60,.6);
+}
+
+@keyframes chainResultIn{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(-4deg);opacity:0;}
+  55%{transform:translate(-50%,-50%) scale(1.12) rotate(1deg);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0deg);opacity:1;}
+}
+@keyframes chainResultOut{
+  from{transform:translate(-50%,-50%) scale(1);opacity:1;}
+  to{transform:translate(-50%,-50%) scale(0.85) translateY(-20px);opacity:0;}
+}
+@keyframes chainCancelIn{
+  0%{transform:translate(-50%,-50%) scale(0);}
+  70%{transform:translate(-50%,-50%) scale(1.08);}
+  100%{transform:translate(-50%,-50%) scale(1);}
+}
+
+/* 파티클 컨테이너 */
+#chain-particles{
+  position:fixed;inset:0;z-index:9550;pointer-events:none;overflow:hidden;
+}
+.cp-spark{
+  position:absolute;border-radius:50%;
+  animation:cpSpark var(--dur,.5s) ease-out forwards;
+}
+@keyframes cpSpark{
+  0%{transform:translate(0,0) scale(1);opacity:1;}
+  100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0;}
+}
+
+
+/* 대각선 슬라이스 오버레이 */
+#chain-overlay{
+  position:fixed;top:0;left:0;right:0;
+  bottom:0;
+  z-index:8500;pointer-events:none;
+  display:none;overflow:hidden;
+}
+#chain-overlay.active{ display:block; }
+
+/* 상단 반 (왼쪽으로 이동) */
+#chain-top{
+  position:absolute;top:0;left:0;right:0;height:42%;
+  background:rgba(4,2,14,.88);
+  clip-path:polygon(0 0,100% 0,100% 85%,0 100%);
+  transform:translateX(-100%);
+  transition:transform .28s cubic-bezier(.2,0,.3,1);
+}
+#chain-overlay.active #chain-top{ transform:translateX(0); }
+
+/* 하단 반 (오른쪽으로 이동) */
+#chain-bot{
+  position:absolute;top:42%;left:0;right:0;height:26%;
+  background:rgba(4,2,14,.75);
+  clip-path:polygon(0 20%,100% 0,100% 100%,0 100%);
+  transform:translateX(100%);
+  transition:transform .28s cubic-bezier(.2,0,.3,1);
+}
+#chain-overlay.active #chain-bot{ transform:translateX(0); }
+
+/* 대각선 칼날 선 */
+#chain-slash{
+  position:absolute;top:48%;left:-10%;right:-10%;
+  height:2px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,215,0,.2) 15%,
+    rgba(255,255,255,.9) 45%,
+    rgba(255,215,0,.9) 50%,
+    rgba(255,255,255,.9) 55%,
+    rgba(255,215,0,.2) 85%,
+    transparent 100%);
+  transform:rotate(-5deg) translateY(-50%) scaleX(0);
+  transform-origin:left center;
+  box-shadow:0 0 12px 2px rgba(255,215,0,.6),0 0 24px 4px rgba(255,215,0,.2);
+  transition:transform .18s cubic-bezier(.2,0,.3,1);
+}
+#chain-overlay.active #chain-slash{
+  transform:rotate(-5deg) translateY(-50%) scaleX(1);
+}
+/* 슬래시 애프터글로우 */
+#chain-slash::after{
+  content:'';position:absolute;inset:-4px 0;
+  background:inherit;filter:blur(6px);opacity:.5;
+}
+
+/* 왼쪽 — 먼저 낸 카드 */
+#chain-card-prev{
+  position:absolute;left:12%;top:50%;transform:translateY(-50%);
+  width:80px;text-align:center;opacity:0;
+  transition:opacity .2s .15s;
+}
+#chain-overlay.active #chain-card-prev{ opacity:1; }
+#chain-card-prev .cc-label{
+  font-size:9px;color:rgba(255,215,0,.5);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.1em;
+  margin-bottom:6px;
+}
+#chain-card-prev .cc-name{
+  font-size:15px;color:#FFD700;
+  font-family:'Noto Serif KR',serif;
+  font-weight:700;
+  text-shadow:0 0 16px rgba(255,215,0,.8),0 2px 4px rgba(0,0,0,.8);
+  line-height:1.3;
+}
+#chain-card-prev .cc-type{
+  font-size:9px;color:rgba(255,215,0,.5);
+  font-family:'Share Tech Mono',monospace;
+  margin-top:6px;letter-spacing:.1em;
+  background:rgba(255,215,0,.06);
+  border:1px solid rgba(255,215,0,.15);
+  border-radius:3px;padding:2px 6px;display:inline-block;
+}
+
+/* 오른쪽 — 힌트 (다음 카드) */
+#chain-hint{
+  position:absolute;right:12%;top:50%;transform:translateY(-50%);
+  width:90px;text-align:center;opacity:0;
+  transition:opacity .2s .2s;
+}
+#chain-overlay.active #chain-hint{ opacity:1; }
+#chain-hint .ch-label{
+  font-size:8px;color:rgba(255,255,255,.25);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.08em;
+  margin-bottom:6px;
+}
+#chain-hint .ch-combo{
+  font-size:10px;color:rgba(136,204,255,.7);
+  font-family:'Share Tech Mono',monospace;
+  letter-spacing:.04em;line-height:1.6;
+  text-shadow:0 0 10px rgba(136,204,255,.4);
+}
+#chain-hint .ch-or{
+  font-size:8px;color:rgba(136,204,255,.3);
+  margin-top:6px;
+}
+
+/* 중앙 — 타이머 */
+#chain-timer{
+  position:absolute;top:38%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;opacity:0;
+  transition:opacity .15s .25s;
+  z-index:10;
+}
+#chain-overlay.active #chain-timer{ opacity:1; }
+#chain-timer .ct-num{
+  font-size:44px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:#FFF;
+  text-shadow:0 0 30px rgba(255,215,0,.9),0 0 60px rgba(255,215,0,.5),0 2px 0 rgba(0,0,0,.8);
+  line-height:1;
+  letter-spacing:-.02em;
+}
+#chain-timer .ct-bar{
+  width:80px;height:4px;background:rgba(255,255,255,.08);
+  border-radius:2px;margin:8px auto 0;overflow:hidden;
+  box-shadow:0 0 8px rgba(0,0,0,.5);
+}
+#chain-timer .ct-fill{
+  height:100%;background:linear-gradient(90deg,#FFD700,#FF8800);
+  border-radius:2px;transition:width .04s linear;
+  box-shadow:0 0 8px rgba(255,215,0,.8);
+}
+
+/* 콤보 성공 텍스트 */
+#chain-result{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:36px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:#FFF;letter-spacing:.2em;
+  text-shadow:0 0 24px var(--G),0 0 48px var(--G);
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+/* 취소 텍스트 */
+#chain-cancel{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:20px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:rgba(255,80,80,.8);letter-spacing:.15em;
+  text-shadow:0 0 16px rgba(255,80,80,.5);
+  pointer-events:none;
+}
+
+/* 반격 판정 오버레이 */
+#parry-overlay{
+  position:fixed;inset:0;z-index:9700;pointer-events:none;
+  display:none;align-items:center;justify-content:center;
+}
+#parry-overlay.active{ display:flex; }
+#parry-flash{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(100,200,255,.25) 0%,transparent 70%);
+  opacity:0;
+}
+#parry-text{
+  font-size:42px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:#88DDFF;
+  text-shadow:0 0 30px rgba(100,200,255,.9),0 0 60px rgba(100,200,255,.4);
+  letter-spacing:.2em;
+  transform:scale(0);
+}
+
+@keyframes parryIn{
+  0%{transform:scale(1.8);opacity:0;}
+  40%{transform:scale(0.95);opacity:1;}
+  70%{transform:scale(1.05);opacity:1;}
+  100%{transform:scale(1);opacity:1;}
+}
+@keyframes chainResultIn{
+  0%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+  60%{transform:translate(-50%,-50%) scale(1.15);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+}
+@keyframes chainResultOut{
+  0%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(0.8);opacity:0;}
+}
+@keyframes chainCancelIn{
+  0%{transform:translate(-50%,-50%) scale(0);}
+  60%{transform:translate(-50%,-50%) scale(1.1);}
+  100%{transform:translate(-50%,-50%) scale(1);}
+}
+
+
+/* ════════ 글리치 효과 ════════ */
+
+/* 텍스트 글리치 */
+@keyframes glitchSkew{
+  0%,100%{transform:skewX(0);}
+  5%{transform:skewX(-4deg);}
+  10%{transform:skewX(2deg);}
+  15%{transform:skewX(0);}
+  80%{transform:skewX(0);}
+  85%{transform:skewX(3deg);}
+  90%{transform:skewX(-1deg);}
+}
+@keyframes glitchClipA{
+  0%,100%{clip-path:inset(0 0 95% 0);}
+  5%{clip-path:inset(30% 0 55% 0);}
+  15%{clip-path:inset(70% 0 8% 0);}
+  20%{clip-path:inset(5% 0 80% 0);}
+  30%{clip-path:inset(45% 0 42% 0);}
+  40%{clip-path:inset(90% 0 2% 0);}
+  55%{clip-path:inset(15% 0 60% 0);}
+  70%{clip-path:inset(0% 0 90% 0);}
+  80%{clip-path:inset(55% 0 28% 0);}
+}
+@keyframes glitchClipB{
+  0%,100%{clip-path:inset(90% 0 0% 0);}
+  8%{clip-path:inset(12% 0 75% 0);}
+  18%{clip-path:inset(60% 0 25% 0);}
+  28%{clip-path:inset(5% 0 82% 0);}
+  38%{clip-path:inset(78% 0 12% 0);}
+  48%{clip-path:inset(35% 0 50% 0);}
+  58%{clip-path:inset(88% 0 4% 0);}
+  68%{clip-path:inset(22% 0 65% 0);}
+  78%{clip-path:inset(50% 0 38% 0);}
+}
+@keyframes glitchShiftR{
+  0%,90%,100%{transform:translate(0);}
+  92%{transform:translate(3px,-1px);}
+  94%{transform:translate(-3px,1px);}
+  96%{transform:translate(2px,0);}
+  98%{transform:translate(-2px,-1px);}
+}
+@keyframes glitchShiftB{
+  0%,90%,100%{transform:translate(0);}
+  92%{transform:translate(-3px,1px);}
+  94%{transform:translate(3px,-1px);}
+  96%{transform:translate(-2px,0);}
+  98%{transform:translate(2px,1px);}
+}
+
+/* 글리치 텍스트 클래스 */
+.glitch-text{
+  position:relative;
+  animation:glitchSkew 4s infinite;
+}
+.glitch-text::before{
+  content:attr(data-text);
+  position:absolute;inset:0;
+  color:#FF2244;
+  animation:glitchClipA 3.5s infinite,glitchShiftR 3.5s infinite;
+  opacity:.75;
+}
+.glitch-text::after{
+  content:attr(data-text);
+  position:absolute;inset:0;
+  color:#0088FF;
+  animation:glitchClipB 3.8s infinite,glitchShiftB 3.8s infinite;
+  opacity:.75;
+}
+
+/* 화면 글리치 오버레이 */
+#glitch-overlay{
+  position:fixed;inset:0;z-index:19999;
+  pointer-events:none;display:none;
+  mix-blend-mode:screen;
+}
+#glitch-overlay.active{ display:block; }
+#glitch-scan{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,.06) 2px,
+    rgba(0,0,0,.06) 4px
+  );
+  opacity:0;
+}
+@keyframes glitchScreen{
+  0%,100%{opacity:0;transform:translate(0);}
+  2%{opacity:.6;transform:translate(-4px,0);filter:hue-rotate(90deg);}
+  4%{opacity:.4;transform:translate(4px,1px);filter:hue-rotate(-90deg);}
+  6%{opacity:0;transform:translate(0);}
+  20%{opacity:0;}
+  21%{opacity:.3;transform:translate(2px,-2px);filter:hue-rotate(180deg);}
+  22%{opacity:0;transform:translate(0);}
+  50%{opacity:0;}
+  51%{opacity:.5;transform:translate(-3px,1px);filter:hue-rotate(45deg);}
+  52%{opacity:.2;transform:translate(3px,-1px);}
+  53%{opacity:0;}
+  80%{opacity:0;}
+  82%{opacity:.4;transform:translate(-2px,2px);filter:saturate(3);}
+  84%{opacity:0;}
+}
+#glitch-rgb{
+  position:absolute;inset:0;opacity:0;
+}
+@keyframes glitchRGB{
+  0%,96%,100%{opacity:0;}
+  97%{opacity:.15;background:rgba(255,0,50,.15);}
+  98%{opacity:.12;background:rgba(0,100,255,.12);}
+  99%{opacity:.08;background:rgba(0,255,100,.08);}
+}
+/* 노이즈 바 */
+@keyframes glitchBar{
+  0%{top:-10%;height:5%;}
+  10%{top:30%;height:2%;}
+  20%{top:70%;height:8%;}
+  30%{top:10%;height:3%;}
+  40%{top:50%;height:6%;}
+  50%{top:80%;height:4%;}
+  60%{top:20%;height:7%;}
+  70%{top:60%;height:2%;}
+  80%{top:40%;height:5%;}
+  90%{top:90%;height:3%;}
+  100%{top:0%;height:4%;}
+}
+.g-bar{
+  position:absolute;left:0;right:0;
+  background:rgba(255,255,255,.04);
+  animation:glitchBar 2s linear infinite;
+}
+.g-bar:nth-child(2){animation-delay:-.7s;background:rgba(255,50,50,.04);}
+.g-bar:nth-child(3){animation-delay:-1.4s;background:rgba(50,100,255,.03);}
+
+
+/* ════ 체인 콤보 UI 재설계 — 화면 상단 고정 패널 ════ */
+#chain-overlay{
+  position:fixed;
+  top:60px;left:50%;transform:translateX(-50%);
+  width:320px;max-width:96vw;
+  z-index:9500;pointer-events:none;
+  display:none;
+}
+#chain-overlay.active{ display:block; }
+
+/* 슬래시 효과 — 전체 화면 대각선 (1회성) */
+#chain-slash-full{
+  position:fixed;inset:0;z-index:9400;pointer-events:none;
+  display:none;overflow:hidden;
+}
+#chain-slash-full.active{ display:block; }
+#chain-slash-line{
+  position:absolute;top:50%;left:-20%;right:-20%;height:2px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,215,0,.0) 30%,#fff 50%,rgba(255,215,0,.0) 70%,transparent 100%);
+  transform:rotate(-8deg) translateY(-50%);
+  box-shadow:0 0 20px 4px rgba(255,215,0,.6);
+  transform-origin:center;
+  animation:chainSlashFly .35s ease forwards;
+}
+@keyframes chainSlashFly{
+  0%{transform:rotate(-8deg) translateY(-50%) scaleX(0) translateX(-60%);}
+  60%{transform:rotate(-8deg) translateY(-50%) scaleX(1) translateX(0);}
+  100%{transform:rotate(-8deg) translateY(-50%) scaleX(0) translateX(60%);opacity:0;}
+}
+
+/* 메인 체인 패널 */
+#chain-panel{
+  background:rgba(4,3,16,.94);
+  border:1px solid rgba(255,215,0,.3);
+  border-radius:10px;
+  padding:10px 14px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 4px 24px rgba(0,0,0,.8),0 0 0 1px rgba(255,215,0,.06),inset 0 1px 0 rgba(255,215,0,.07);
+  opacity:0;
+  transform:translateY(-8px);
+  transition:opacity .2s,transform .2s;
+}
+#chain-overlay.active #chain-panel{
+  opacity:1;transform:translateY(0);
+}
+
+/* 이전 카드 정보 */
+#chain-prev-info{
+  flex:1;min-width:0;
+}
+#chain-prev-label{
+  font-size:7px;color:rgba(255,215,0,.4);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.12em;
+  margin-bottom:3px;
+}
+#chain-prev-name{
+  font-size:12px;color:#FFD700;
+  font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+#chain-prev-type{
+  font-size:8px;color:rgba(255,215,0,.4);
+  font-family:'Share Tech Mono',monospace;margin-top:2px;
+}
+
+/* 화살표 */
+#chain-arrow-mid{
+  font-size:18px;color:rgba(255,215,0,.35);flex-shrink:0;
+}
+
+/* 다음 힌트 */
+#chain-next-info{
+  flex:1;min-width:0;text-align:right;
+}
+#chain-next-label{
+  font-size:7px;color:rgba(255,255,255,.2);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.1em;margin-bottom:3px;
+}
+#chain-next-hint{
+  font-size:9px;color:rgba(255,255,255,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* 타이머 */
+#chain-timer-wrap{
+  flex-shrink:0;text-align:center;
+}
+#ct-num{
+  font-size:22px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:#FFF;line-height:1;
+  text-shadow:0 0 12px rgba(255,215,0,.6);
+}
+.ct-bar{
+  width:44px;height:2px;background:rgba(255,255,255,.08);
+  border-radius:1px;margin:5px auto 0;overflow:hidden;
+}
+.ct-fill{
+  height:100%;border-radius:1px;
+  background:linear-gradient(90deg,#FFD700,#FFAA00);
+  transition:width .05s linear;
+}
+
+/* 콤보 성공/실패 텍스트 — 화면 중앙 상단 */
+#chain-result{
+  position:fixed;top:30%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:28px;font-weight:900;
+  font-family:'Cinzel Decorative',serif;
+  color:#FFF;letter-spacing:.18em;
+  text-shadow:0 0 20px var(--G),0 0 40px var(--G);
+  pointer-events:none;white-space:nowrap;z-index:9600;
+}
+#chain-cancel{
+  position:fixed;top:30%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:16px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:rgba(255,80,80,.8);letter-spacing:.12em;
+  text-shadow:0 0 12px rgba(255,80,80,.5);
+  pointer-events:none;z-index:9600;
+}
+
+
+/* ════ 글리치 효과 ════ */
+@keyframes glitchSkew{
+  0%,100%{transform:skewX(0);}
+  20%{transform:skewX(-2deg);}
+  40%{transform:skewX(1.5deg);}
+  60%{transform:skewX(-1deg);}
+  80%{transform:skewX(0.5deg);}
+}
+@keyframes glitchRGB{
+  0%,100%{text-shadow:none;}
+  20%{text-shadow:-3px 0 #FF0033,3px 0 #0033FF;}
+  40%{text-shadow:3px 0 #FF0033,-3px 0 #0033FF;}
+  60%{text-shadow:-2px 1px #FF0033,2px -1px #0033FF;}
+}
+.glitch-text{
+  animation:glitchSkew .12s steps(1) infinite,glitchRGB .12s steps(1) infinite;
+}
+#glitch-overlay{
+  position:fixed;inset:0;z-index:19999;pointer-events:none;
+  display:none;
+}
+#glitch-overlay.active{display:block;}
+#glitch-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:.85;
+}
+
+
+/* 체인 타이머 바 */
+#chain-timer-bar{
+  position:fixed;top:90px;left:50%;transform:translateX(-50%);
+  width:208px;height:2px;
+  background:rgba(255,255,255,.06);
+  border-radius:1px;
+  z-index:9100;pointer-events:none;
+  opacity:0;transition:opacity .25s;
+  overflow:hidden;
+}
+#chain-bar.visible ~ #chain-timer-bar,
+#chain-timer-bar.active{opacity:1!important;}
+#chain-timer-fill{
+  height:100%;width:100%;
+  background:linear-gradient(90deg,#FFD700 0%,#FF8800 100%);
+  border-radius:1px;
+  box-shadow:0 0 6px rgba(255,215,0,.5);
+  transition:width .04s linear,background .2s;
+}
+/* 타이머 숫자 — 슬롯 아래 중앙 */
+#chain-timer-num{
+  position:fixed;top:95px;left:50%;transform:translateX(-50%);
+  font-size:9px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:rgba(255,215,0,.45);letter-spacing:.08em;
+  z-index:9100;pointer-events:none;
+  opacity:0;transition:opacity .25s;
+}
+#chain-timer-num.active{opacity:1;}
+
+
+/* ══════════════════════════════════════
+   체인 콤보 UI — 블랙아웃 + 대각선
+══════════════════════════════════════ */
+
+/* 메인 오버레이: 화면 전체 덮음, 단 카드 손패 영역(하단 FUI) 제외 */
+#cx-overlay{
+  position:fixed;
+  top:0;left:0;right:0;
+  bottom:220px;           /* 카드 + FUI 영역 남김 */
+  z-index:9100;
+  background:rgba(0,0,0,.92);
+  display:none;
+  overflow:hidden;
+  pointer-events:none;
+}
+#cx-overlay.active{ display:block; }
+
+/* 대각선 선: 우상단 → 좌하단 (SVG) */
+#cx-line-svg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+}
+
+/* 카운트다운 타이머 — 중앙 */
+#cx-timer-wrap{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+#cx-time{
+  font-size:56px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:#FFF;line-height:1;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 0 16px rgba(255,255,255,.4);
+  letter-spacing:-.02em;
+  transition:color .15s,text-shadow .15s;
+}
+#cx-time.danger{
+  color:#FF3300;
+  text-shadow:0 0 16px rgba(255,51,0,.7),0 0 32px rgba(255,51,0,.3);
+}
+
+/* 실패 텍스트 */
+#cx-fail{
+  position:fixed;
+  top:38%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  z-index:9600;pointer-events:none;
+  font-family:'Share Tech Mono',monospace;
+  font-size:20px;font-weight:900;
+  color:#FF2200;
+  letter-spacing:.18em;white-space:nowrap;
+  text-shadow:0 0 20px rgba(255,34,0,.9);
+}
+
+/* 조각 파괴 애니메이션 */
+@keyframes cxShardTL{from{transform:translate(0,0) rotate(0) scale(1);opacity:1;}to{transform:translate(-120px,-80px) rotate(-25deg) scale(.7);opacity:0;}}
+@keyframes cxShardTR{from{transform:translate(0,0) rotate(0) scale(1);opacity:1;}to{transform:translate(100px,-90px) rotate(20deg) scale(.6);opacity:0;}}
+@keyframes cxShardBL{from{transform:translate(0,0) rotate(0) scale(1);opacity:1;}to{transform:translate(-90px,80px) rotate(-15deg) scale(.65);opacity:0;}}
+@keyframes cxShardBR{from{transform:translate(0,0) rotate(0) scale(1);opacity:1;}to{transform:translate(110px,70px) rotate(30deg) scale(.6);opacity:0;}}
+@keyframes cxShardC{from{transform:translate(0,0) scale(1);opacity:1;}to{transform:translate(0,-40px) scale(.3);opacity:0;}}
+.cx-shard{position:absolute;background:rgba(0,0,0,.9);border:1px solid rgba(255,50,50,.3);}
+
+@keyframes cxFailIn{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(-4deg);opacity:0;}
+  50%{transform:translate(-50%,-50%) scale(1.1) rotate(1deg);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1;}
+}
+@keyframes cxFailOut{
+  from{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  to{opacity:0;transform:translate(-50%,-50%) scale(.8) translateY(-12px);}
+}
+
+
+/* ═══ 체인 콤보 UI ═══ */
+#cx-overlay{
+  position:fixed;
+  inset:0;                    /* 화면 전체 */
+  z-index:9100;
+  background:transparent;     /* 배경 없음 — 게임 그대로 보임 */
+  overflow:visible;
+  pointer-events:none;
+}
+
+/* 대각선 라인: 우상단 → 좌하단, 화면 전체 */
+#cx-line-svg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;overflow:visible;
+}
+#cx-line-svg line{
+  stroke:rgba(255,215,0,.7);
+  stroke-width:1.5;
+  filter:drop-shadow(0 0 6px rgba(255,215,0,.8)) drop-shadow(0 0 14px rgba(255,215,0,.4));
+}
+
+/* 왼쪽 카드 정보 — 블러 패널 */
+#cx-left-info{
+  position:absolute;
+  left:6%;top:42%;
+  transform:translateY(-50%);
+  padding:12px 16px;
+  background:rgba(2,2,10,.55);
+  backdrop-filter:blur(18px) saturate(1.2);
+  -webkit-backdrop-filter:blur(18px) saturate(1.2);
+  border:1px solid rgba(255,215,0,.2);
+  border-radius:10px;
+  box-shadow:0 4px 24px rgba(0,0,0,.5),0 0 0 1px rgba(255,215,0,.06);
+}
+#cx-chain-label{
+  font-size:7px;color:rgba(255,215,0,.45);
+  font-family:'Share Tech Mono',monospace;
+  letter-spacing:.28em;margin-bottom:5px;
+}
+#cx-card-name-disp{
+  font-size:17px;font-weight:900;color:#FFD700;
+  font-family:'Noto Serif KR',serif;
+  text-shadow:0 0 10px rgba(255,215,0,.6);
+  max-width:110px;word-break:keep-all;line-height:1.3;
+}
+#cx-card-type-disp{
+  font-size:9px;color:rgba(255,215,0,.35);
+  font-family:'Share Tech Mono',monospace;
+  margin-top:3px;letter-spacing:.1em;
+}
+
+/* 중앙 타이머 — 블러 패널 */
+#cx-timer-wrap{
+  position:absolute;
+  top:42%;left:50%;
+  transform:translate(-50%,-50%);
+  padding:10px 20px;
+  background:rgba(2,2,10,.5);
+  backdrop-filter:blur(18px) saturate(1.2);
+  -webkit-backdrop-filter:blur(18px) saturate(1.2);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 4px 24px rgba(0,0,0,.45);
+}
+#cx-time{
+  font-size:52px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:#FFF;line-height:1;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 0 12px rgba(255,255,255,.4);
+  transition:color .1s,text-shadow .1s;
+}
+#cx-time.danger{
+  color:#FF3300;
+  text-shadow:0 0 16px rgba(255,51,0,.9),0 0 32px rgba(255,51,0,.4);
+  animation:cxTimerPulse .22s ease-in-out infinite alternate;
+}
+@keyframes cxTimerPulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.05);}
+}
+
+/* 조각 파괴 */
+.cx-shard{
+  position:fixed;
+  background:rgba(0,0,4,.92);
+  border:1px solid rgba(255,40,40,.2);
+}
+@keyframes cxShard0{from{opacity:1;}to{transform:translate(-140px,-95px) rotate(-24deg) scale(.6);opacity:0;}}
+@keyframes cxShard1{from{opacity:1;}to{transform:translate(115px,-85px) rotate(19deg) scale(.55);opacity:0;}}
+@keyframes cxShard2{from{opacity:1;}to{transform:translate(-85px,95px) rotate(-17deg) scale(.65);opacity:0;}}
+@keyframes cxShard3{from{opacity:1;}to{transform:translate(125px,85px) rotate(29deg) scale(.5);opacity:0;}}
+@keyframes cxShard4{from{opacity:1;}to{transform:translate(5px,-55px) scale(.2);opacity:0;}}
+
+@keyframes cxFailIn{
+  0%{opacity:0;transform:translateX(-50%) scale(0) rotate(-3deg);}
+  55%{opacity:1;transform:translateX(-50%) scale(1.08) rotate(.5deg);}
+  100%{opacity:1;transform:translateX(-50%) scale(1) rotate(0);}
+}
+@keyframes cxFailOut{
+  to{opacity:0;transform:translateX(-50%) scale(.8) translateY(-14px);}
+}
+
+/* 대각선 라인 */
+#cx-line-svg line{
+  stroke-dasharray:0;
+  stroke:rgba(255,215,0,.18);
+  stroke-width:1;
+}
+
+/* 왼쪽 패널 텍스트 */
+#cx-left-info{
+  position:absolute;
+  left:8%;top:50%;
+  transform:translateY(-50%);
+  text-align:left;
+}
+#cx-chain-label{
+  font-size:7px;color:rgba(255,215,0,.35);
+  font-family:'Share Tech Mono',monospace;
+  letter-spacing:.25em;margin-bottom:6px;
+}
+#cx-card-name-disp{
+  font-size:18px;font-weight:900;color:#FFD700;
+  font-family:'Noto Serif KR',serif;
+  text-shadow:0 0 12px rgba(255,215,0,.5);
+  max-width:110px;word-break:keep-all;line-height:1.25;
+}
+#cx-card-type-disp{
+  font-size:9px;color:rgba(255,215,0,.3);
+  font-family:'Share Tech Mono',monospace;
+  margin-top:3px;letter-spacing:.1em;
+}
+
+/* 중앙 타이머 */
+#cx-timer-wrap{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+#cx-time{
+  font-size:54px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:#FFF;line-height:1;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 0 14px rgba(255,255,255,.3);
+  transition:color .1s,text-shadow .1s;
+}
+#cx-time.danger{
+  color:#FF3300;
+  text-shadow:0 0 18px rgba(255,51,0,.8),0 0 36px rgba(255,51,0,.3);
+  animation:cxTimerPulse .25s ease-in-out infinite alternate;
+}
+@keyframes cxTimerPulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.04);}
+}
+
+/* 조각 파괴 */
+.cx-shard{
+  position:absolute;
+  background:rgba(0,0,4,.95);
+  border:1px solid rgba(255,40,40,.2);
+}
+@keyframes cxShard0{to{transform:translate(-140px,-95px) rotate(-24deg) scale(.6);opacity:0;}}
+@keyframes cxShard1{to{transform:translate(115px,-85px) rotate(19deg) scale(.55);opacity:0;}}
+@keyframes cxShard2{to{transform:translate(-85px,95px) rotate(-17deg) scale(.65);opacity:0;}}
+@keyframes cxShard3{to{transform:translate(125px,85px) rotate(29deg) scale(.5);opacity:0;}}
+@keyframes cxShard4{to{transform:translate(5px,-55px) scale(.2);opacity:0;}}
+
+/* COMBO DESTROYED */
+@keyframes cxFailIn{
+  0%{opacity:0;transform:translateX(-50%) scale(0) rotate(-3deg);}
+  55%{opacity:1;transform:translateX(-50%) scale(1.08) rotate(.5deg);}
+  100%{opacity:1;transform:translateX(-50%) scale(1) rotate(0);}
+}
+@keyframes cxFailOut{
+  to{opacity:0;transform:translateX(-50%) scale(.8) translateY(-14px);}
+}
+
+/* 적 AP 허드 */
+#enemy-ap-hud{
+  position:fixed;top:8px;left:50%;transform:translateX(-50%);
+  z-index:8500;pointer-events:none;
+  display:none;align-items:center;gap:5px;
+  background:rgba(2,2,10,.75);
+  border:1px solid rgba(255,100,0,.25);
+  border-radius:20px;
+  padding:4px 12px;
+  backdrop-filter:blur(8px);
+}
+#enemy-ap-hud.active{display:flex;}
+#enemy-ap-hud .ap-label{
+  font-size:7px;color:rgba(255,150,0,.5);
+  font-family:'Share Tech Mono',monospace;letter-spacing:.15em;
+}
+#enemy-ap-hud .ap-pip{
+  width:9px;height:9px;border-radius:50%;
+}
+#enemy-ap-hud .ap-count{
+  font-size:11px;font-weight:900;
+  font-family:'Share Tech Mono',monospace;
+  color:#FF8800;
+}
+
+
+/* 극한 각성 차지 표시 */
+#boss-charge-hud{
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:8200;pointer-events:none;
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;font-weight:900;color:#FF8800;
+  letter-spacing:.15em;
+  text-shadow:0 0 10px rgba(255,136,0,.6);
+  opacity:0;transition:opacity .2s;
+}
+
+@keyframes stormExpand{to{width:300px;height:300px;opacity:0;border-width:1px;}}
